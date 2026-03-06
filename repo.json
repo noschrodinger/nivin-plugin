@@ -1,15 +1,15 @@
 {
-  "name": "Nivin Official Repo",
-  "description": "Plugins para Nivin",
-  "version": "1.0.0",
+  "name": "Nivin Plugin Repo",
+  "version": "1.0",
   "plugins": [
     {
-      "id": "test-resolver",
-      "name": "Test Resolver",
-      "type": "resolver",
-      "api": "https://tu-servidor.com",
+      "id": "vidlink",
+      "name": "VidLink",
+      "type": "embed",
+      "baseUrl": "https://vidlink.pro",
       "routes": {
-        "resolveByTmdb": "/resolve/tmdb/{type}/{id}"
+        "movie": "/movie/{tmdbId}",
+        "tv": "/tv/{tmdbId}/{season}/{episode}"
       }
     }
   ]
