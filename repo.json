@@ -1,0 +1,16 @@
+{
+  "name": "Nivin Official Repo",
+  "description": "Plugins para Nivin",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "id": "test-resolver",
+      "name": "Test Resolver",
+      "type": "resolver",
+      "api": "https://tu-servidor.com",
+      "routes": {
+        "resolveByTmdb": "/resolve/tmdb/{type}/{id}"
+      }
+    }
+  ]
+}
