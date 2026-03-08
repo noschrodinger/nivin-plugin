@@ -1,15 +1,65 @@
 {
   "name": "Nivin Plugin Repo",
-  "version": "1.0",
+  "version": "1.1",
   "plugins": [
     {
       "id": "vidlink",
-      "name": "VidLink",
+      "name": "VidLink (embed)",
       "type": "embed",
-      "baseUrl": "https://vidlink.pro",
+      "api": "https://vidlink.pro",
       "routes": {
         "movie": "/movie/{tmdbId}",
         "tv": "/tv/{tmdbId}/{season}/{episode}"
+      },
+      "headers": {
+        "Referer": "https://vidlink.pro",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+      }
+    },
+    {
+      "id": "yts",
+      "name": "YTS (películas, requiere Real-Debrid)",
+      "type": "api",
+      "api": "https://yts.mx/api/v2",
+      "routes": {
+        "movie": "/list_movies.json?query_term={tmdbId}"
+      },
+      "headers": {
+        "Referer": "https://yts.mx",
+        "User-Agent": "Mozilla/5.0"
+      },
+      "meta": {
+        "needsRealDebrid": true
+      }
+    },
+    {
+      "id": "stremio-addon",
+      "name": "Stremio Addon (Torrentio, etc.)",
+      "type": "api",
+      "api": "https://your-stremio-addon-bridge.com", 
+      "routes": {
+        "movie": "/movie/{tmdbId}",
+        "tv": "/series/{tmdbId}/{season}/{episode}"
+      },
+      "headers": {
+        "User-Agent": "Mozilla/5.0"
+      },
+      "meta": {
+        "description": "Conecta con addons de Stremio. Requiere configuración previa."
+      }
+    },
+    {
+      "id": "xdmovies",
+      "name": "XDMovies (streams directos)",
+      "type": "api",
+      "api": "https://xdmovies.example.com", 
+      "routes": {
+        "movie": "/movie/{tmdbId}",
+        "tv": "/tv/{tmdbId}/{season}/{episode}"
+      },
+      "headers": {
+        "Referer": "https://xdmovies.example.com",
+        "User-Agent": "Mozilla/5.0"
       }
     }
   ]
